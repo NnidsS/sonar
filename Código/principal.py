@@ -2,10 +2,10 @@ import tkinter as tk
 from criptoarquivo import *
 from interface import *
 
-Venda = historicoVenda()
-Compra = historicoCompra()
-Usuarios = bancoDeUsuarios()
-Estoque = estoqueTotal() 
+Venda = historico_de_venda()
+Compra = historico_de_compra()
+Usuarios = banco_de_usuarios()
+Estoque = estoque_total() 
    
 #---------------------------------FUNÇAO JANELA DE TRANSAÇOES-----------------------------------
 
