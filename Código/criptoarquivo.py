@@ -1,4 +1,4 @@
-def lerChavePublica():
+def ler_chave_publica():
     arq = open("chavePublica.txt", "r")
     texto = arq.read
     e = ""
