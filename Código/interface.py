@@ -7,23 +7,23 @@ listaVenda = []
 listaCompra = []
 dicEstoque = {}  
 
-def historicoVenda():
+def historico_de_venda():
      return dicVenda
 
-def historicoCompra():
+def historico_de_compra():
      return dicCompra
 
-def bancoDeUsuarios():
+def banco_de_usuarios():
      return dicUsuario
 
-def estoqueTotal():
+def estoque_total():
      return dicEstoque
 
-def criaJanelaTransacao():
+def cria_janela_transacao():
     
     #----------------------FUNCIONAMENTO DA JANELA TRANSAÇAO-----------------------------
     #VENDAS
-    def registraTransacaoVenda():
+    def registra_transacao_venda():
         chaveVenda = produtoEntrada.get()
         quantidadeVenda = quantidadeEntrada.get()
         precoVenda = precoEntrada.get()
@@ -51,7 +51,7 @@ def criaJanelaTransacao():
         print(dicVenda) 
         
     #COMPRAS
-    def registraTransacaoCompra():
+    def registra_transacao_compra():
         chaveCompra = produtoEntrada.get()
         quantidadeCompra = quantidadeEntrada.get()
         precoCompra = precoEntrada.get()
@@ -97,10 +97,10 @@ def criaJanelaTransacao():
     precoEntrada = tk.Entry(janelaTransacao, width="30")
     precoEntrada.place(x=105,y=80)
 
-    botaoVenda = tk.Button(janelaTransacao, text="Registrar Venda", width="17", command=registraTransacaoVenda)
+    botaoVenda = tk.Button(janelaTransacao, text="Registrar Venda", width="17", command=registra_transacao_venda)
     botaoVenda.place(x=20,y=110)
     
-    botaoCompra = tk.Button(janelaTransacao, text="Registrar Compra", width="17", command=registraTransacaoCompra)
+    botaoCompra = tk.Button(janelaTransacao, text="Registrar Compra", width="17", command=registra_transacao_compra)
     botaoCompra.place(x=190 ,y=110)
 
     botaoCancela = tk.Button(janelaTransacao, text="Cancelar", width="38", command=janelaTransacao.destroy)
@@ -110,9 +110,9 @@ def criaJanelaTransacao():
     janelaTransacao.mainloop()
 
 #------------------------------FUNÇAO JANELA GERENCIAMENTO DE USUARIO-----------------------------
-def criaJanelaGerenciamento():
+def cria_janela_gerenciamento():
     #---------------------------FUNCIONAMENTO GERENCIAMENTO DE USUARIO -----------------------------
-    def gerenciaUsuario():
+    def gerencia_usuario():
         chaveNome = entradaNomeUsuario.get()
         cpf = entradaCpf.get()
         telefone = entradaTelefone.get()
@@ -128,7 +128,7 @@ def criaJanelaGerenciamento():
         print(dicUsuario) 
 
     #---------------------------------FUNCIONAMENTO PESQUISA DE USUARIO----------------------------
-    def pesquisaUsuario():
+    def pesquisa_usuario():
         pesquisaNome = pesquisaEntrada.get()
         if pesquisaNome in dicUsuario:
             resultadoNome["text"] = "Nome:",pesquisaNome
@@ -142,7 +142,7 @@ def criaJanelaGerenciamento():
             resultadoNivel["text"] = "" 
 
     #------------------------------FUNCIONAMENTO BOTAO EXCLUIR------------------------------------
-    def excluirUsuario():
+    def excluir_usuario():
         excluiNome = pesquisaEntrada.get()
         if excluiNome in dicUsuario:
             dicUsuario.pop(excluiNome)
@@ -196,7 +196,7 @@ def criaJanelaGerenciamento():
     entradaNivel = tk.Entry(janelaGerenciamento, width="2")
     entradaNivel.place(x=340,y=140)
 
-    botaoAddUsuario = tk.Button(janelaGerenciamento, text="Atualizar usuário", command=gerenciaUsuario)
+    botaoAddUsuario = tk.Button(janelaGerenciamento, text="Atualizar usuário", command=gerencia_usuario)
     botaoAddUsuario.place(x=200,y=190)
 
     #-----------------------------------BOTOES PESQUISAR USUARIO-----------------------------------
@@ -206,7 +206,7 @@ def criaJanelaGerenciamento():
     pesquisaEntrada = tk.Entry(janelaGerenciamento, width="40")
     pesquisaEntrada.place(x=70, y=270)
 
-    botaoPesquisar = tk.Button(janelaGerenciamento, text="Pesquisar", command=pesquisaUsuario)
+    botaoPesquisar = tk.Button(janelaGerenciamento, text="Pesquisar", command=pesquisa_usuario)
     botaoPesquisar.place(x=400,y=267)
     #----------------------------------RESULTADO DA PESQUISA---------------------------------------
     resultadoNome = tk.Label(janelaGerenciamento, text="")
@@ -221,7 +221,7 @@ def criaJanelaGerenciamento():
     resultadoNivel = tk.Label(janelaGerenciamento, text="")
     resultadoNivel.place(x=170,y=345)
     #------------------------------BOTAO PARA EXCLUIR USUARIO---------------------------------------
-    botaoExcluir = tk.Button(janelaGerenciamento, text="Excluir\nUsuário",height="3", command=excluirUsuario)
+    botaoExcluir = tk.Button(janelaGerenciamento, text="Excluir\nUsuário",height="3", command=excluir_usuario)
     botaoExcluir["bg"] = "red"
     botaoExcluir.place(x=70,y=300)
     #-----------------------------RESULTADO DA AÇAO EXCLUIR---------------------------------------
@@ -229,10 +229,10 @@ def criaJanelaGerenciamento():
     resultadoExclusao.place(x=160,y=400)
 
 #-----------------------------FUNÇAO CRIA JANELA PESQUISAR PRODUTO---------------------------------
-def criaJanelaPesquisaProduto():
+def cria_janela_pesquisa_produto():
     
     #---------------------------FUNCIONAMENTO BOTOES PESQUISA PRODUTO-------------------------------
-    def pesquisaProduto():
+    def pesquisa_produto():
         pesquisaProdutoNome = entradaNomeProduto.get()
         if pesquisaProdutoNome in dicEstoque:
             produtoResultadoNome["text"] = "Nome:",pesquisaProdutoNome
@@ -254,7 +254,7 @@ def criaJanelaPesquisaProduto():
     entradaNomeProduto = tk.Entry(janelaPesquisaProduto, width="30")
     entradaNomeProduto.place(x=140, y=20)
 
-    botaoProcurar = tk.Button(janelaPesquisaProduto, text="Pesquisar", command=pesquisaProduto)
+    botaoProcurar = tk.Button(janelaPesquisaProduto, text="Pesquisar", command=pesquisa_produto)
     botaoProcurar.place(x=160,y=50)
 
     produtoResultadoNome = tk.Label(janelaPesquisaProduto, text="")
@@ -265,7 +265,7 @@ def criaJanelaPesquisaProduto():
     
 
 #------------------------------------FUNÇAO TELA ADMIN--------------------------------------
-def telaAdmin(x):
+def tela_do_administrador(x):
     #--------------------LAYOUT JANELA ADMIN----------------------
     x.destroy()
     janela = tk.Tk()
@@ -273,13 +273,13 @@ def telaAdmin(x):
     janela.title("Controle de Estoque - LPtech (Administrador)")
 
     #----------------------LAYOUT DOS BOTOES--------------------------
-    botaoTransacao = tk.Button(janela, text="Registrar Transação", width="50", height="3", command=criaJanelaTransacao)
+    botaoTransacao = tk.Button(janela, text="Registrar Transação", width="50", height="3", command=cria_janela_transacao)
     botaoTransacao.place(x=20,y=20)
 
-    botaoCadastro = tk.Button(janela, text="Gerenciamento de Usuário", width="50", height="3", command=criaJanelaGerenciamento)
+    botaoCadastro = tk.Button(janela, text="Gerenciamento de Usuário", width="50", height="3", command=cria_janela_gerenciamento)
     botaoCadastro.place(x=20,y=80)
 
-    botaoPesquisa = tk.Button(janela, text="Pesquisar Produto", width="50", height="3", command=criaJanelaPesquisaProduto)
+    botaoPesquisa = tk.Button(janela, text="Pesquisar Produto", width="50", height="3", command=cria_janela_pesquisa_produto)
     botaoPesquisa.place(x=20,y=140)
 
     botaoHistorico = tk.Button(janela, text="Histórico de Transações", width="50", height="3")
@@ -297,9 +297,9 @@ def acesso(p1,p2,p3,p4):
     password = p2.get()
     aviso = p3
     if usuario == "admin" and password == "admin":
-        telaAdmin(p4)
+        tela_do_administrador(p4)
     elif usuario == "admin2" and password == "admin2":
-        criaJanelaGerenciamento()
+        cria_janela_gerenciamento()
     else:
         aviso["text"] = "Usuário ou senha incorretos"
         
