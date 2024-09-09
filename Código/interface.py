@@ -129,7 +129,6 @@ def cria_janela_gerenciamento():
         print(dicUsuario) 
 
     #---------------------------------FUNCIONAMENTO PESQUISA DE USUARIO----------------------------
-    LABEL_NOME = "Nome:"
     def pesquisa_usuario():
         pesquisa_nome = pesquisa_entrada.get()
         if pesquisa_nome in dicUsuario:
@@ -202,7 +201,7 @@ def cria_janela_gerenciamento():
     botao_add_usuario.place(x=200,y=190)
 
     #-----------------------------------BOTOES PESQUISAR USUARIO-----------------------------------
-    nome_pesquisa = tk.Label(janela_de_gerenciamento, text="Nome:")
+    nome_pesquisa = tk.Label(janela_de_gerenciamento, text=LABEL_NOME)
     nome_pesquisa.place(x=20,y=270)
 
     pesquisa_entrada = tk.Entry(janela_de_gerenciamento, width="40")
@@ -234,7 +233,6 @@ def cria_janela_gerenciamento():
 def cria_janela_pesquisa_produto():
     
     #---------------------------FUNCIONAMENTO BOTOES PESQUISA PRODUTO-------------------------------
-    LABEL_NOME = "Nome:"
     def pesquisa_produto():
         pesquisa_produto_nome = entrada_nome_produto.get()
         if pesquisa_produto_nome in dicEstoque:
