@@ -42,12 +42,11 @@ def descriptografa_para_dic(arquivo):
     texto = arq.read()
     
     for elemento in texto:
-        letra = chr((elemento**num2) % num1)
-        
+        chr((elemento**num2) % num1)
+        # Processamento adicional pode ser necessário
 
 def escreve_no_arquivo():
-    x = 1  
-
+    pass  
 
 
 
