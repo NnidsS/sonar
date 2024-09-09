@@ -34,7 +34,7 @@ def ler_chave_privada():
 
 def criptografa(dicionario):
 
-    chaves_Dic = dicionario.keys()
+    chaves_dic = dicionario.keys()
     
 def descriptografa_para_dic(arquivo):
     num1 = ler_chave_privada()[0]
