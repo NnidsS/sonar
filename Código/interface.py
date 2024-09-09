@@ -24,244 +24,244 @@ def cria_janela_transacao():
     #----------------------FUNCIONAMENTO DA JANELA TRANSAÇAO-----------------------------
     #VENDAS
     def registra_transacao_venda():
-        chaveVenda = produtoEntrada.get()
-        quantidadeVenda = quantidadeEntrada.get()
-        precoVenda = precoEntrada.get()
-        tuplaVenda = (quantidadeVenda, precoVenda)
-        if chaveVenda in dicVenda and chaveVenda in dicEstoque:
-            listaVenda = dicVenda[chaveVenda]
-            listaVenda.append(tuplaVenda)
-            dicVenda[chaveVenda] = listaVenda#---------------------->>> ESCREVER NO ARQUIVO
+        chave_venda = produto_entrada.get()
+        quantidade_venda = quantidade_entrada.get()
+        preco_venda = preco_entrada.get()
+        tupla_venda = (quantidade_venda, preco_venda)
+        if chave_venda in dicVenda and chave_venda in dicEstoque:
+            lista_venda = dicVenda[chave_venda]
+            lista_venda.append(tupla_venda)
+            dicVenda[chave_venda] = listaVenda#---------------------->>> ESCREVER NO ARQUIVO
         else:
-            if chaveVenda in dicEstoque:
-                listaVenda = []
-                listaVenda.append(tuplaVenda)
-                dicVenda[chaveVenda] = listaVenda
-        if chaveVenda in dicEstoque:
-            dicEstoque[chaveVenda] += -int(tuplaVenda[0])
-            if dicEstoque[chaveVenda] <= 0:
-                dicEstoque.pop(chaveVenda)
+            if chave_venda in dicEstoque:
+                lista_venda = []
+                lista_venda.append(tupla_venda)
+                dicVenda[chave_venda] = listaVenda
+        if chave_venda in dicEstoque:
+            dicEstoque[chave_venda] += -int(tupla_venda[0])
+            if dicEstoque[chave_venda] <= 0:
+                dicEstoque.pop(chave_venda)
             
         else:
-            dicEstoque[chaveVenda] = -int(tuplaVenda[0])
-            if dicEstoque[chaveVenda] < 0:
-                dicEstoque.pop(chaveVenda)
+            dicEstoque[chave_venda] = -int(tupla_venda[0])
+            if dicEstoque[chave_venda] < 0:
+                dicEstoque.pop(chave_venda)
         
         print(dicEstoque)
         print(dicVenda) 
         
     #COMPRAS
     def registra_transacao_compra():
-        chaveCompra = produtoEntrada.get()
-        quantidadeCompra = quantidadeEntrada.get()
-        precoCompra = precoEntrada.get()
-        tuplaCompra = (quantidadeCompra, precoCompra)
-        if chaveCompra in dicCompra:
-            listaCompra = dicCompra[chaveCompra]
-            listaCompra.append(tuplaCompra)
-            dicCompra[chaveCompra] = listaCompra#---------------------->>> ESCREVER NO ARQUIVO
+        chave_compra = produto_entrada.get()
+        quantidade_compra = quantidade_entrada.get()
+        preco_compra = preco_entrada.get()
+        tupla_compra = (quantidade_compra, preco_compra)
+        if chave_compra in dicCompra:
+            lista_compra = dicCompra[chave_compra]
+            lista_compra.append(tupla_compra)
+            dicCompra[chave_compra] = listaCompra#---------------------->>> ESCREVER NO ARQUIVO
         else:
-            listaCompra = []
-            listaCompra.append(tuplaCompra)
-            dicCompra[chaveCompra] = listaCompra
-        if chaveCompra in dicEstoque:
-            dicEstoque[chaveCompra] += int(tuplaCompra[0])
+            lista_compra = []
+            lista_compra.append(tupla_compra)
+            dicCompra[chave_compra] = listaCompra
+        if chave_compra in dicEstoque:
+            dicEstoque[chave_compra] += int(tupla_compra[0])
             
         else:
-            dicEstoque[chaveCompra] = int(tuplaCompra[0])
+            dicEstoque[chave_compra] = int(tupla_compra[0])
         
         print(dicCompra) 
         print(dicEstoque)
 
     #-----------------LAYOUT JANELA TRANSAÇAO--------------------
-    janelaTransacao = tk.Tk()
-    janelaTransacao.title("Registrar Transação")
-    janelaTransacao.geometry("400x200+525+270")
+    janela_transacao = tk.Tk()
+    janela_transacao.title("Registrar Transação")
+    janela_transacao.geometry("400x200+525+270")
     
     #--------------------LAYOUT DOS BOTOES--------------------------
-    produto = tk.Label(janelaTransacao, text="Produto:")
+    produto = tk.Label(janela_transacao, text="Produto:")
     produto.place(x=20,y=20)
     
-    produtoEntrada = tk.Entry(janelaTransacao,width="30")
-    produtoEntrada.place(x=105,y=20)
+    produto_entrada = tk.Entry(janela_transacao,width="30")
+    produto_entrada.place(x=105,y=20)
 
-    produtoQuantidade = tk.Label(janelaTransacao, text="Quantidade:")
-    produtoQuantidade.place(x=20,y=50)
+    produto_quantidade = tk.Label(janela_transacao, text="Quantidade:")
+    produto_quantidade.place(x=20,y=50)
 
-    quantidadeEntrada = tk.Entry(janelaTransacao,width="30" )
-    quantidadeEntrada.place(x=105,y=50)
+    quantidade_entrada = tk.Entry(janela_transacao,width="30" )
+    quantidade_entrada.place(x=105,y=50)
 
-    produtoPreco = tk.Label(janelaTransacao, text="Preço:")
-    produtoPreco.place(x=20,y=80)
+    produto_preco = tk.Label(janela_transacao, text="Preço:")
+    produto_preco.place(x=20,y=80)
 
-    precoEntrada = tk.Entry(janelaTransacao, width="30")
-    precoEntrada.place(x=105,y=80)
+    preco_entrada = tk.Entry(janela_transacao, width="30")
+    preco_entrada.place(x=105,y=80)
 
-    botaoVenda = tk.Button(janelaTransacao, text="Registrar Venda", width="17", command=registra_transacao_venda)
-    botaoVenda.place(x=20,y=110)
+    Botao_venda = tk.Button(janela_transacao, text="Registrar Venda", width="17", command=registra_transacao_venda)
+    Botao_venda.place(x=20,y=110)
     
-    botaoCompra = tk.Button(janelaTransacao, text="Registrar Compra", width="17", command=registra_transacao_compra)
-    botaoCompra.place(x=190 ,y=110)
+    Botao_compra = tk.Button(janela_transacao, text="Registrar Compra", width="17", command=registra_transacao_compra)
+    Botao_compra.place(x=190 ,y=110)
 
-    botaoCancela = tk.Button(janelaTransacao, text="Cancelar", width="38", command=janelaTransacao.destroy)
-    botaoCancela.place(x=20,y=140)
-    botaoCancela["bg"] = "red"
+    Botao_cancela = tk.Button(janela_transacao, text="Cancelar", width="38", command=janela_transacao.destroy)
+    Botao_cancela.place(x=20,y=140)
+    Botao_cancela["bg"] = "red"
     
-    janelaTransacao.mainloop()
+    janela_transacao.mainloop()
 
 #------------------------------FUNÇAO JANELA GERENCIAMENTO DE USUARIO-----------------------------
 def cria_janela_gerenciamento():
     #---------------------------FUNCIONAMENTO GERENCIAMENTO DE USUARIO -----------------------------
     def gerencia_usuario():
-        chaveNome = entradaNomeUsuario.get()
-        cpf = entradaCpf.get()
-        telefone = entradaTelefone.get()
-        senha = entradaSenha.get()
-        nivel = entradaNivel.get()        
-        tuplaUsuario = (senha, nivel, telefone, cpf)
-        if chaveNome in dicUsuario:
-            dicUsuario[chaveNome] = tuplaUsuario#---------------------->>> ESCREVER NO ARQUIVO
+        chave_nome = entrada_nome_usuario.get()
+        cpf = entrada_cpf.get()
+        telefone = entrada_telefone.get()
+        senha = entrada_senha.get()
+        nivel = entrada_nivel.get()        
+        tupla_usuario = (senha, nivel, telefone, cpf)
+        if chave_nome in dicUsuario:
+            dicUsuario[chave_nome] = tupla_usuario#---------------------->>> ESCREVER NO ARQUIVO
         else:
-            listaUsuario = []
-            listaUsuario.append(tuplaUsuario)
-            dicUsuario[chaveNome] = listaUsuario
+            lista_usuario = []
+            lista_usuario.append(tupla_usuario)
+            dicUsuario[chave_nome] = lista_usuario
         print(dicUsuario) 
 
     #---------------------------------FUNCIONAMENTO PESQUISA DE USUARIO----------------------------
     def pesquisa_usuario():
-        pesquisaNome = pesquisaEntrada.get()
-        if pesquisaNome in dicUsuario:
-            resultadoNome["text"] = "Nome:",pesquisaNome
-            resultadoCpf["text"] = "CPF:" ,dicUsuario[pesquisaNome][0][3]
-            resultadoTelefone["text"] = "Telefone:" ,dicUsuario[pesquisaNome][0][2]
-            resultadoNivel["text"] = "Nível:" ,dicUsuario[pesquisaNome][0][1]
+        pesquisa_nome = pesquisa_entrada.get()
+        if pesquisa_nome in dicUsuario:
+            resultado_nome["text"] = "Nome:",pesquisa_nome
+            resultado_cpf["text"] = "CPF:" ,dicUsuario[pesquisa_nome][0][3]
+            resultado_telefone["text"] = "Telefone:" ,dicUsuario[pesquisa_nome][0][2]
+            resultado_nivel["text"] = "Nível:" ,dicUsuario[pesquisa_nome][0][1]
         else:
-            resultadoNome["text"] = ""
-            resultadoCpf["text"] = "ERRO: Usuário não cadastrado no sistema" 
-            resultadoTelefone["text"] = "" 
-            resultadoNivel["text"] = "" 
+            resultado_nome["text"] = ""
+            resultado_cpf["text"] = "ERRO: Usuário não cadastrado no sistema" 
+            resultado_telefone["text"] = "" 
+            resultado_nivel["text"] = "" 
 
     #------------------------------FUNCIONAMENTO BOTAO EXCLUIR------------------------------------
     def excluir_usuario():
-        excluiNome = pesquisaEntrada.get()
-        if excluiNome in dicUsuario:
-            dicUsuario.pop(excluiNome)
+        exclui_nome = pesquisa_entrada.get()
+        if exclui_nome in dicUsuario:
+            dicUsuario.pop(exclui_nome)
             print(dicUsuario)
-            resultadoNome["text"] = ""
-            resultadoCpf["text"] = "" 
-            resultadoTelefone["text"] = "" 
-            resultadoNivel["text"] = "" 
-            resultadoExclusao["text"] = "USUÁRIO EXCLUÍDO COM SUCESSO!"
+            resultado_nome["text"] = ""
+            resultado_cpf["text"] = "" 
+            resultado_telefone["text"] = "" 
+            resultado_nivel["text"] = "" 
+            resultado_exclusao["text"] = "USUÁRIO EXCLUÍDO COM SUCESSO!"
         else:
-            resultadoNome["text"] = ""
-            resultadoCpf["text"] = "" 
-            resultadoTelefone["text"] = "" 
-            resultadoNivel["text"] = "" 
-            resultadoExclusao["text"] = "IMPOSSÍVEL EXCLUIR"
+            resultado_nome["text"] = ""
+            resultado_cpf["text"] = "" 
+            resultado_telefone["text"] = "" 
+            resultado_nivel["text"] = "" 
+            resultado_exclusao["text"] = "IMPOSSÍVEL EXCLUIR"
             
     #--------------------------LAYOUT JANELA GERENCIAMENTO----------------------------
     
-    janelaGerenciamento = tk.Tk()
-    janelaGerenciamento.geometry("530x420+525+0")
-    janelaGerenciamento.title("Gerenciamento de Usuário")
+    janela_de_gerenciamento = tk.Tk()
+    janela_de_gerenciamento.geometry("530x420+525+0")
+    janela_de_gerenciamento.title("Gerenciamento de Usuário")
 
     #--------------------------BOTOES ADICIONAR USUARIO------------------------------
-    nomeUsuario = tk.Label(janelaGerenciamento, text="Nome do usuário:")
-    nomeUsuario.place(x=20,y=20)
+    nome_usuario = tk.Label(janela_de_gerenciamento, text="Nome do usuário:")
+    nome_usuario.place(x=20,y=20)
 
-    entradaNomeUsuario = tk.Entry(janelaGerenciamento, width="42")
-    entradaNomeUsuario.place(x=150,y=20)
+    entrada_nome_usuario = tk.Entry(janela_de_gerenciamento, width="42")
+    entrada_nome_usuario.place(x=150,y=20)
 
-    cpfUsuario = tk.Label(janelaGerenciamento, text="CPF do usuário:")
-    cpfUsuario.place(x=20,y=50)
+    cpf_usuario = tk.Label(janela_de_gerenciamento, text="CPF do usuário:")
+    cpf_usuario.place(x=20,y=50)
 
-    entradaCpf = tk.Entry(janelaGerenciamento, width="42")
-    entradaCpf.place(x=150,y=50)
+    entrada_cpf = tk.Entry(janela_de_gerenciamento, width="42")
+    entrada_cpf.place(x=150,y=50)
 
-    telefoneUsuario = tk.Label(janelaGerenciamento, text="Telefone do usuário:")
-    telefoneUsuario.place(x=20,y=80)
+    telefone_usuario = tk.Label(janela_de_gerenciamento, text="Telefone do usuário:")
+    telefone_usuario.place(x=20,y=80)
 
-    entradaTelefone = tk.Entry(janelaGerenciamento, width="42")
-    entradaTelefone.place(x=150,y=80)
+    entrada_telefone = tk.Entry(janela_de_gerenciamento, width="42")
+    entrada_telefone.place(x=150,y=80)
 
-    senhaUsuario = tk.Label(janelaGerenciamento, text="Senha do usuário:")
-    senhaUsuario.place(x=20,y=110)
+    senha_usuario = tk.Label(janela_de_gerenciamento, text="Senha do usuário:")
+    senha_usuario.place(x=20,y=110)
 
-    entradaSenha = tk.Entry(janelaGerenciamento, width="42")
-    entradaSenha.place(x=150,y=110)
+    entrada_senha = tk.Entry(janela_de_gerenciamento, width="42")
+    entrada_senha.place(x=150,y=110)
 
-    nivelUsuario = tk.Label(janelaGerenciamento, text="Digite o nível de acesso:\n\nNível 1:Acesso mínimo | Nível 2:Acesso intermediário | Nível 3: Acesso máximo")
-    nivelUsuario.place(x=20,y=140)
+    nivel_usuario = tk.Label(janela_de_gerenciamento, text="Digite o nível de acesso:\n\nNível 1:Acesso mínimo | Nível 2:Acesso intermediário | Nível 3: Acesso máximo")
+    nivel_usuario.place(x=20,y=140)
 
-    entradaNivel = tk.Entry(janelaGerenciamento, width="2")
-    entradaNivel.place(x=340,y=140)
+    entrada_nivel = tk.Entry(janela_de_gerenciamento, width="2")
+    entrada_nivel.place(x=340,y=140)
 
-    botaoAddUsuario = tk.Button(janelaGerenciamento, text="Atualizar usuário", command=gerencia_usuario)
-    botaoAddUsuario.place(x=200,y=190)
+    Botao_Add_usuario = tk.Button(janela_de_gerenciamento, text="Atualizar usuário", command=gerencia_usuario)
+    Botao_Add_usuario.place(x=200,y=190)
 
     #-----------------------------------BOTOES PESQUISAR USUARIO-----------------------------------
-    nomePesquisa = tk.Label(janelaGerenciamento, text="Nome:")
-    nomePesquisa.place(x=20,y=270)
+    nome_pesquisa = tk.Label(janela_de_gerenciamento, text="Nome:")
+    nome_pesquisa.place(x=20,y=270)
 
-    pesquisaEntrada = tk.Entry(janelaGerenciamento, width="40")
-    pesquisaEntrada.place(x=70, y=270)
+    pesquisa_entrada = tk.Entry(janela_de_gerenciamento, width="40")
+    pesquisa_entrada.place(x=70, y=270)
 
-    botaoPesquisar = tk.Button(janelaGerenciamento, text="Pesquisar", command=pesquisa_usuario)
+    botaoPesquisar = tk.Button(janela_de_gerenciamento, text="Pesquisar", command=pesquisa_usuario)
     botaoPesquisar.place(x=400,y=267)
     #----------------------------------RESULTADO DA PESQUISA---------------------------------------
-    resultadoNome = tk.Label(janelaGerenciamento, text="")
-    resultadoNome.place(x=170,y=300)
+    resultado_nome = tk.Label(janela_de_gerenciamento, text="")
+    resultado_nome.place(x=170,y=300)
 
-    resultadoCpf = tk.Label(janelaGerenciamento, text="")
-    resultadoCpf.place(x=170,y=315)
+    resultado_cpf = tk.Label(janela_de_gerenciamento, text="")
+    resultado_cpf.place(x=170,y=315)
 
-    resultadoTelefone = tk.Label(janelaGerenciamento, text="")
-    resultadoTelefone.place(x=170,y=330)
+    resultado_telefone = tk.Label(janela_de_gerenciamento, text="")
+    resultado_telefone.place(x=170,y=330)
 
-    resultadoNivel = tk.Label(janelaGerenciamento, text="")
-    resultadoNivel.place(x=170,y=345)
+    resultado_nivel = tk.Label(janela_de_gerenciamento, text="")
+    resultado_nivel.place(x=170,y=345)
     #------------------------------BOTAO PARA EXCLUIR USUARIO---------------------------------------
-    botaoExcluir = tk.Button(janelaGerenciamento, text="Excluir\nUsuário",height="3", command=excluir_usuario)
-    botaoExcluir["bg"] = "red"
-    botaoExcluir.place(x=70,y=300)
+    Botao_excluir = tk.Button(janela_de_gerenciamento, text="Excluir\nUsuário",height="3", command=excluir_usuario)
+    Botao_excluir["bg"] = "red"
+    Botao_excluir.place(x=70,y=300)
     #-----------------------------RESULTADO DA AÇAO EXCLUIR---------------------------------------
-    resultadoExclusao = tk.Label(janelaGerenciamento, text="")
-    resultadoExclusao.place(x=160,y=400)
+    resultado_exclusao = tk.Label(janela_de_gerenciamento, text="")
+    resultado_exclusao.place(x=160,y=400)
 
 #-----------------------------FUNÇAO CRIA JANELA PESQUISAR PRODUTO---------------------------------
 def cria_janela_pesquisa_produto():
     
     #---------------------------FUNCIONAMENTO BOTOES PESQUISA PRODUTO-------------------------------
     def pesquisa_produto():
-        pesquisaProdutoNome = entradaNomeProduto.get()
-        if pesquisaProdutoNome in dicEstoque:
-            produtoResultadoNome["text"] = "Nome:",pesquisaProdutoNome
-            produtoResultadoQuantidade["text"] = "Qtd em estoque:",dicEstoque[pesquisaProdutoNome]
-            janelaPesquisaProduto.geometry("415x140+525+270")
+        pesquisa_produto_nome = entrada_nome_produto.get()
+        if pesquisa_produto_nome in dicEstoque:
+            produto_resultado_nome["text"] = "Nome:",pesquisa_produto_nome
+            produto_resultado_quantidade["text"] = "Qtd em estoque:",dicEstoque[pesquisa_produto_nome]
+            janela_pesquisa_produto.geometry("415x140+525+270")
         else:
-            produtoResultadoNome["text"] = pesquisaProdutoNome,"em falta!"
-            produtoResultadoQuantidade["text"] = ""
+            produto_resultado_nome["text"] = pesquisa_produto_nome,"em falta!"
+            produto_resultado_quantidade["text"] = ""
 
     #-------------------------------LAYOUT JANELA PESQUISA PRODUTO---------------------------------
-    janelaPesquisaProduto = tk.Tk()
-    janelaPesquisaProduto.geometry("415x100+525+270")
-    janelaPesquisaProduto.title("Pesquisa Produto")
+    janela_pesquisa_produto = tk.Tk()
+    janela_pesquisa_produto.geometry("415x100+525+270")
+    janela_pesquisa_produto.title("Pesquisa Produto")
 
     #-----------------------------LAYOUT BOTOES PESQUISA PRODUTO-----------------------------------
-    nomeProduto = tk.Label(janelaPesquisaProduto, text="Nome do produto:")
-    nomeProduto.place(x=20,y=20)
+    nome_produto = tk.Label(janela_pesquisa_produto, text="Nome do produto:")
+    nome_produto.place(x=20,y=20)
 
-    entradaNomeProduto = tk.Entry(janelaPesquisaProduto, width="30")
-    entradaNomeProduto.place(x=140, y=20)
+    entrada_nome_produto = tk.Entry(janela_pesquisa_produto, width="30")
+    entrada_nome_produto.place(x=140, y=20)
 
-    botaoProcurar = tk.Button(janelaPesquisaProduto, text="Pesquisar", command=pesquisa_produto)
-    botaoProcurar.place(x=160,y=50)
+    Botao_procurar = tk.Button(janela_pesquisa_produto, text="Pesquisar", command=pesquisa_produto)
+    Botao_procurar.place(x=160,y=50)
 
-    produtoResultadoNome = tk.Label(janelaPesquisaProduto, text="")
-    produtoResultadoNome.place(x=140,y=80)
+    produto_resultado_nome = tk.Label(janela_pesquisa_produto, text="")
+    produto_resultado_nome.place(x=140,y=80)
 
-    produtoResultadoQuantidade = tk.Label(janelaPesquisaProduto, text="")
-    produtoResultadoQuantidade.place(x=125,y=100)
+    produto_resultado_quantidade = tk.Label(janela_pesquisa_produto, text="")
+    produto_resultado_quantidade.place(x=125,y=100)
     
 
 #------------------------------------FUNÇAO TELA ADMIN--------------------------------------
@@ -273,20 +273,20 @@ def tela_do_administrador(x):
     janela.title("Controle de Estoque - LPtech (Administrador)")
 
     #----------------------LAYOUT DOS BOTOES--------------------------
-    botaoTransacao = tk.Button(janela, text="Registrar Transação", width="50", height="3", command=cria_janela_transacao)
-    botaoTransacao.place(x=20,y=20)
+    Botao_transacao = tk.Button(janela, text="Registrar Transação", width="50", height="3", command=cria_janela_transacao)
+    Botao_transacao.place(x=20,y=20)
 
-    botaoCadastro = tk.Button(janela, text="Gerenciamento de Usuário", width="50", height="3", command=cria_janela_gerenciamento)
-    botaoCadastro.place(x=20,y=80)
+    Botao_cadastro = tk.Button(janela, text="Gerenciamento de Usuário", width="50", height="3", command=cria_janela_gerenciamento)
+    Botao_cadastro.place(x=20,y=80)
 
-    botaoPesquisa = tk.Button(janela, text="Pesquisar Produto", width="50", height="3", command=cria_janela_pesquisa_produto)
-    botaoPesquisa.place(x=20,y=140)
+    Botao_pesquisa = tk.Button(janela, text="Pesquisar Produto", width="50", height="3", command=cria_janela_pesquisa_produto)
+    Botao_pesquisa.place(x=20,y=140)
 
-    botaoHistorico = tk.Button(janela, text="Histórico de Transações", width="50", height="3")
-    botaoHistorico.place(x=20,y=200)
+    Botao_historico = tk.Button(janela, text="Histórico de Transações", width="50", height="3")
+    Botao_historico.place(x=20,y=200)
 
-    botaoEstoque = tk.Button(janela, text="Checar Estoque", width="50", height="3")
-    botaoEstoque.place(x=20,y=260)
+    Botao_estoque = tk.Button(janela, text="Checar Estoque", width="50", height="3")
+    Botao_estoque.place(x=20,y=260)
 
     janela.mainloop()
     
@@ -302,4 +302,5 @@ def acesso(p1,p2,p3,p4):
         cria_janela_gerenciamento()
     else:
         aviso["text"] = "Usuário ou senha incorretos"
+        
         
