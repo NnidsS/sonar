@@ -97,15 +97,15 @@ def cria_janela_transacao():
     preco_entrada = tk.Entry(janela_transacao, width="30")
     preco_entrada.place(x=105,y=80)
 
-    Botao_venda = tk.Button(janela_transacao, text="Registrar Venda", width="17", command=registra_transacao_venda)
-    Botao_venda.place(x=20,y=110)
+    botao_venda = tk.Button(janela_transacao, text="Registrar Venda", width="17", command=registra_transacao_venda)
+    botao_venda.place(x=20,y=110)
     
-    Botao_compra = tk.Button(janela_transacao, text="Registrar Compra", width="17", command=registra_transacao_compra)
-    Botao_compra.place(x=190 ,y=110)
+    botao_compra = tk.Button(janela_transacao, text="Registrar Compra", width="17", command=registra_transacao_compra)
+    botao_compra.place(x=190 ,y=110)
 
-    Botao_cancela = tk.Button(janela_transacao, text="Cancelar", width="38", command=janela_transacao.destroy)
-    Botao_cancela.place(x=20,y=140)
-    Botao_cancela["bg"] = "red"
+    botao_cancela = tk.Button(janela_transacao, text="Cancelar", width="38", command=janela_transacao.destroy)
+    botao_cancela.place(x=20,y=140)
+    botao_cancela["bg"] = "red"
     
     janela_transacao.mainloop()
 
@@ -196,8 +196,8 @@ def cria_janela_gerenciamento():
     entrada_nivel = tk.Entry(janela_de_gerenciamento, width="2")
     entrada_nivel.place(x=340,y=140)
 
-    Botao_add_usuario = tk.Button(janela_de_gerenciamento, text="Atualizar usuário", command=gerencia_usuario)
-    Botao_add_usuario.place(x=200,y=190)
+    botao_add_usuario = tk.Button(janela_de_gerenciamento, text="Atualizar usuário", command=gerencia_usuario)
+    botao_add_usuario.place(x=200,y=190)
 
     #-----------------------------------BOTOES PESQUISAR USUARIO-----------------------------------
     nome_pesquisa = tk.Label(janela_de_gerenciamento, text="Nome:")
