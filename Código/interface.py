@@ -6,6 +6,7 @@ dicUsuario = {}
 listaVenda = []
 listaCompra = []
 dicEstoque = {}  
+LABEL_NOME = "Nome:"
 
 def historico_de_venda():
      return dicVenda
