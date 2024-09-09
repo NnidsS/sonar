@@ -207,8 +207,8 @@ def cria_janela_gerenciamento():
     pesquisa_entrada = tk.Entry(janela_de_gerenciamento, width="40")
     pesquisa_entrada.place(x=70, y=270)
 
-    botaoPesquisar = tk.Button(janela_de_gerenciamento, text="Pesquisar", command=pesquisa_usuario)
-    botaoPesquisar.place(x=400,y=267)
+    botao_pesquisar = tk.Button(janela_de_gerenciamento, text="Pesquisar", command=pesquisa_usuario)
+    botao_pesquisar.place(x=400,y=267)
     #----------------------------------RESULTADO DA PESQUISA---------------------------------------
     resultado_nome = tk.Label(janela_de_gerenciamento, text="")
     resultado_nome.place(x=170,y=300)
