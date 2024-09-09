@@ -46,7 +46,7 @@ def descriptografa_para_dic(arquivo):
         # Processamento adicional pode ser necessário
 
 def escreve_no_arquivo():
-    pass  
+    pass  # Exemplo de operação
 
 
 
