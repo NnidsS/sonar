@@ -15,7 +15,7 @@ def ler_chave_publica():
     n = int(n)
     return (e,n)
 
-def lerChavePrivada():
+def ler_chave_privada():
     arq = open("chavePublica.txt", "r")
     texto = arq.read
     e = ""
@@ -32,20 +32,20 @@ def lerChavePrivada():
     n = int(n)
     return (d,n)
 
-def criptografa(dicionario,letra):
+def criptografa(dicionario):
 
-    chavesDic = dicionario.keys()
+    chaves_Dic = dicionario.keys()
     
-def descriptografaParaDic(arquivo):
-    num1 = lerChavePrivada()[0]
-    num2 = lerChavePrivada()[1]
-    elementoFinal = ""
+def descriptografa_para_dic(arquivo):
+    num1 = ler_chave_privada()[0]
+    num2 = ler_chave_privada()[1]
+    elemento_final = ""
     arq = open(arquivo, "r")
     texto = arq.read()
     
     for elemento in texto:
         letra = chr((elemento**num2) % num1)
-        elementoFinal += letra
+        elemento_final += letra
 
 
 
@@ -53,8 +53,17 @@ def descriptografaParaDic(arquivo):
 
 
 
-def escreveNoArquivo(dicionario):
+def escreve_no_arquivo():
  x+1   
+
+
+
+
+
+
+
+
+
 
 
 
