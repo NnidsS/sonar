@@ -196,8 +196,8 @@ def cria_janela_gerenciamento():
     entrada_nivel = tk.Entry(janela_de_gerenciamento, width="2")
     entrada_nivel.place(x=340,y=140)
 
-    Botao_Add_usuario = tk.Button(janela_de_gerenciamento, text="Atualizar usuário", command=gerencia_usuario)
-    Botao_Add_usuario.place(x=200,y=190)
+    Botao_add_usuario = tk.Button(janela_de_gerenciamento, text="Atualizar usuário", command=gerencia_usuario)
+    Botao_add_usuario.place(x=200,y=190)
 
     #-----------------------------------BOTOES PESQUISAR USUARIO-----------------------------------
     nome_pesquisa = tk.Label(janela_de_gerenciamento, text="Nome:")
@@ -206,8 +206,8 @@ def cria_janela_gerenciamento():
     pesquisa_entrada = tk.Entry(janela_de_gerenciamento, width="40")
     pesquisa_entrada.place(x=70, y=270)
 
-    botaoPesquisar = tk.Button(janela_de_gerenciamento, text="Pesquisar", command=pesquisa_usuario)
-    botaoPesquisar.place(x=400,y=267)
+    botao_pesquisar = tk.Button(janela_de_gerenciamento, text="Pesquisar", command=pesquisa_usuario)
+    botao_pesquisar.place(x=400,y=267)
     #----------------------------------RESULTADO DA PESQUISA---------------------------------------
     resultado_nome = tk.Label(janela_de_gerenciamento, text="")
     resultado_nome.place(x=170,y=300)
@@ -221,9 +221,9 @@ def cria_janela_gerenciamento():
     resultado_nivel = tk.Label(janela_de_gerenciamento, text="")
     resultado_nivel.place(x=170,y=345)
     #------------------------------BOTAO PARA EXCLUIR USUARIO---------------------------------------
-    Botao_excluir = tk.Button(janela_de_gerenciamento, text="Excluir\nUsuário",height="3", command=excluir_usuario)
-    Botao_excluir["bg"] = "red"
-    Botao_excluir.place(x=70,y=300)
+    botao_excluir = tk.Button(janela_de_gerenciamento, text="Excluir\nUsuário",height="3", command=excluir_usuario)
+    botao_excluir["bg"] = "red"
+    botao_excluir.place(x=70,y=300)
     #-----------------------------RESULTADO DA AÇAO EXCLUIR---------------------------------------
     resultado_exclusao = tk.Label(janela_de_gerenciamento, text="")
     resultado_exclusao.place(x=160,y=400)
@@ -254,8 +254,8 @@ def cria_janela_pesquisa_produto():
     entrada_nome_produto = tk.Entry(janela_pesquisa_produto, width="30")
     entrada_nome_produto.place(x=140, y=20)
 
-    Botao_procurar = tk.Button(janela_pesquisa_produto, text="Pesquisar", command=pesquisa_produto)
-    Botao_procurar.place(x=160,y=50)
+    botao_procurar = tk.Button(janela_pesquisa_produto, text="Pesquisar", command=pesquisa_produto)
+    botao_procurar.place(x=160,y=50)
 
     produto_resultado_nome = tk.Label(janela_pesquisa_produto, text="")
     produto_resultado_nome.place(x=140,y=80)
@@ -273,20 +273,20 @@ def tela_do_administrador(x):
     janela.title("Controle de Estoque - LPtech (Administrador)")
 
     #----------------------LAYOUT DOS BOTOES--------------------------
-    Botao_transacao = tk.Button(janela, text="Registrar Transação", width="50", height="3", command=cria_janela_transacao)
-    Botao_transacao.place(x=20,y=20)
+    botao_transacao = tk.Button(janela, text="Registrar Transação", width="50", height="3", command=cria_janela_transacao)
+    botao_transacao.place(x=20,y=20)
 
-    Botao_cadastro = tk.Button(janela, text="Gerenciamento de Usuário", width="50", height="3", command=cria_janela_gerenciamento)
-    Botao_cadastro.place(x=20,y=80)
+    botao_cadastro = tk.Button(janela, text="Gerenciamento de Usuário", width="50", height="3", command=cria_janela_gerenciamento)
+    botao_cadastro.place(x=20,y=80)
 
-    Botao_pesquisa = tk.Button(janela, text="Pesquisar Produto", width="50", height="3", command=cria_janela_pesquisa_produto)
-    Botao_pesquisa.place(x=20,y=140)
+    botao_pesquisa = tk.Button(janela, text="Pesquisar Produto", width="50", height="3", command=cria_janela_pesquisa_produto)
+    botao_pesquisa.place(x=20,y=140)
 
-    Botao_historico = tk.Button(janela, text="Histórico de Transações", width="50", height="3")
-    Botao_historico.place(x=20,y=200)
+    botao_historico = tk.Button(janela, text="Histórico de Transações", width="50", height="3")
+    botao_historico.place(x=20,y=200)
 
-    Botao_estoque = tk.Button(janela, text="Checar Estoque", width="50", height="3")
-    Botao_estoque.place(x=20,y=260)
+    botao_estoque = tk.Button(janela, text="Checar Estoque", width="50", height="3")
+    botao_estoque.place(x=20,y=260)
 
     janela.mainloop()
     
